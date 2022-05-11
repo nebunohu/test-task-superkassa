@@ -12,10 +12,12 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "commonJS",
+    "outDir": "out",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
     "noEmit": true,
+    "sourceMap": true
   },
   "include": [
     "server"
