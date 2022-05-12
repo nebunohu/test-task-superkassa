@@ -1,0 +1,11 @@
+.formWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: fit-content;
+  gap: 10px;
+
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.1);
+}

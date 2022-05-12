@@ -12,7 +12,17 @@ router.get("/test", async (req: Request, res: Response) => {
     }
 })
 
-// /api/user/add
+// /api/users/get-phones
+router.get("/get-phones", async (req: Request, res: Response) => {
+    try {
+        const findResuls = await Phone.find({});
+        res.status(200).json({ result: findResuls });
+    } catch (e) {
+        res.status(400).json({ message: 'Something went wrong'});
+    }
+});
+
+// /api/users/add
 router.post("/add", async (req: Request, res: Response) => {
     try {
         const { phone } = req.body;
