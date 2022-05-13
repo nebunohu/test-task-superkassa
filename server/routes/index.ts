@@ -1,5 +1,7 @@
 import { Router, Response, Request } from "express";
 import Phone from '../models/Phone';
+import { socket } from "../app";
+import {Event} from "ws";
 
 export const router = Router();
 
@@ -37,6 +39,14 @@ router.post("/add", async (req: Request, res: Response) => {
         const note = new Phone({phone});
 
         await note.save();
+
+        const result = await Phone.find({});
+        if (socket) {
+            //console.log(JSON.stringify({result}));
+            socket.send(JSON.stringify({result}));
+        }
+        
+        
         
         res.status(201).json({message: 'Номер сохранен'});
 
