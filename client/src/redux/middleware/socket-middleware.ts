@@ -14,7 +14,7 @@ export const socketMiddleware = (wsUrl: string, wsActions: TMiddlewareWsActions)
 
       if (type === wsInit) {
         // объект класса WebSocket
-        socket = new WebSocket(`${wsUrl}/all`);
+        socket = new WebSocket(`${wsUrl}`);
       }
 
       if ( socket ) {

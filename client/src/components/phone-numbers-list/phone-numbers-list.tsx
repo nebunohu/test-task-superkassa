@@ -1,5 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { API_BASE_URL } from "../../consts";
+import { useDispatch, useSelector } from "../../hooks";
+import { WS_CONNECTION_START } from "../../redux/actions/ws-actions";
 
 import { 
   Table,
@@ -11,38 +13,17 @@ import {
   Paper } from "@mui/material";
 
 const PhoneNumbersList: FC = () => {
-  //const socket: WebSocket | null = null; 
-  const ws = useRef<WebSocket | null>(null);
-  const [phones, setPhones] = useState([]);
-  const[isConnected, setIsConnected] = useState(false);
-
-  const getPhonesList = async () => {
-    const res = await fetch(`${API_BASE_URL}/users/get-phones`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      }
-    });
-    const body = await res.json();
-    setPhones(body.result);
-  };
+  const { wsConnected, phones } = useSelector(store => store.ws);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if ( !phones.length ) getPhonesList();
+    if(!wsConnected) {
+      
+      dispatch({type: WS_CONNECTION_START, payload: ''});
+      
+    }
 
   }, []);
-
-  /*useEffect(() => {
-    if(!isConnected) {
-      ws.current = new WebSocket(`ws:localhost:3002`);
-      
-      setIsConnected(true);
-    } else if (ws.current) ws.current.onmessage = e => {                //подписка на получение данных по вебсокету
-      
-      const message = JSON.parse(e.data);
-      //setData(message);
-    };
-  }, [ws]);*/
 
   return (
     <TableContainer 
