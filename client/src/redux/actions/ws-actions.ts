@@ -6,7 +6,6 @@ export const WS_CONNECTION_CLOSE: 'WS_CONNECTION_CLOSE' = 'WS_CONNECTION_CLOSE';
 
 export interface IWsConnectionStart {
     readonly type: typeof WS_CONNECTION_START;
-    readonly payload: any;
 }
 
 export interface IWsConnectionStartWithToken {
@@ -26,7 +25,6 @@ export interface IWsGetMessage {
 
 export interface IWsConnectionClose {
     readonly type: typeof WS_CONNECTION_CLOSE;
-    readonly payload: any;
 }
 
 export type TWsActions = IWsConnectionStart | IWsConnectionStartWithToken | IWsConnectionSuccess | IWsGetMessage | IWsConnectionClose;

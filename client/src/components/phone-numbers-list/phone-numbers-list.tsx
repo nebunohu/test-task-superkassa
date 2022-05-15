@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { API_BASE_URL } from "../../consts";
 import { useDispatch, useSelector } from "../../hooks";
-import { WS_CONNECTION_START } from "../../redux/actions/ws-actions";
+import { WS_CONNECTION_CLOSE, WS_CONNECTION_START } from "../../redux/actions/ws-actions";
 
 import { 
   Table,
@@ -19,9 +19,12 @@ const PhoneNumbersList: FC = () => {
   useEffect(() => {
     if(!wsConnected) {
       
-      dispatch({type: WS_CONNECTION_START, payload: ''});
+      dispatch({type: WS_CONNECTION_START});
       
     }
+    return () => {
+      dispatch({type: WS_CONNECTION_CLOSE});
+    };
 
   }, []);
 
