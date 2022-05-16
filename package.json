@@ -10,6 +10,7 @@
     "mongoose": "^6.3.2",
     "node-sass": "^7.0.1",
     "npm": "^8.9.0",
+    "ts-node": "^10.7.0",
     "typescript": "^4.6.4",
     "ws": "^8.6.0"
   },
@@ -18,7 +19,7 @@
     "build:client": "npm run build --prefix client",
     "server": "ts-node-dev --respawn server/app.ts",
     "start": "ts-node server/app.ts",
-    "build:server": "react-scripts build",
+    "build:server": "tsc",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "lint": "eslint --ext .ts,.tsx ."
   },
@@ -49,7 +50,6 @@
     "@typescript-eslint/parser": "^5.23.0",
     "concurrently": "^7.1.0",
     "eslint": "^8.15.0",
-    "ts-node": "^10.7.0",
     "ts-node-dev": "^1.1.8"
   }
 }
