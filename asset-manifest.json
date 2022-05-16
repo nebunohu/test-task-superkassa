@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/test-task-superkassa/static/css/main.6641a479.css",
+    "main.js": "/test-task-superkassa/static/js/main.c3747982.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/test-task-superkassa/static/js/787.c4e7f8f9.chunk.js",
+    "index.html": "/test-task-superkassa/index.html",
+    "main.6641a479.css.map": "/test-task-superkassa/static/css/main.6641a479.css.map",
+    "main.c3747982.js.map": "/test-task-superkassa/static/js/main.c3747982.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/test-task-superkassa/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6641a479.css",
+    "static/js/main.c3747982.js"
+  ]
+}
