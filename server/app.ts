@@ -53,6 +53,6 @@ start();
 
 
  
- server.listen(WS_PORT , () => console.log(`WS server started on port ${WS_PORT}...`))
+server.listen(process.env.PORT || WS_PORT , () => console.log(`WS server started on port ${process.env.PORT || WS_PORT}...`));
 
-app.listen(process.env.PORT || PORT, () => console.log(`Application started on port ${PORT}...`));
+app.listen(process.env.PORT || PORT, () => console.log(`Application started on port ${process.env.PORT || PORT}...`));
