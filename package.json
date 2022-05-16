@@ -18,8 +18,8 @@
     "client": "npm run start --prefix client",
     "build:client": "npm run build --prefix client",
     "server": "ts-node-dev --respawn server/app.ts",
-    "start": "ts-node server/app.ts",
-    "build:server": "tsc",
+    "start": "node build/app.js",
+    "build": "tsc",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "lint": "eslint --ext .ts,.tsx ."
   },
