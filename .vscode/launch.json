@@ -10,8 +10,7 @@
       "name": "Launch Program",
       "program": "${workspaceFolder}/server/app.ts",
       "preLaunchTask": "tsc: build - tsconfig.json",
-      "outFiles": ["${workspaceFolder}/out/**/*.js"],
-      
+      "outFiles": ["${workspaceFolder}/build/**/*.js"]
     },
     {
       "type": "pwa-chrome",

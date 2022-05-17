@@ -1,5 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
-import { API_BASE_URL } from "../../consts";
+import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "../../hooks";
 import { WS_CONNECTION_CLOSE, WS_CONNECTION_START } from "../../redux/actions/ws-actions";
 
@@ -45,15 +44,22 @@ const PhoneNumbersList: FC = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {phones.length ? phones.map( (el: any, index: number) => {  
-            return (
-              <TableRow key={index}>
-                <TableCell align="left">
-                  {el.phone}
-                </TableCell>
-              </TableRow>
-            );
-          } ) : null}
+          {phones.length ? 
+            phones.map( (el: any, index: number) => {  
+              return (
+                <TableRow key={index}>
+                  <TableCell align="left">
+                    {el.phone}
+                  </TableCell>
+                </TableRow>
+              );
+            } ) 
+            : 
+            <TableRow>
+              <TableCell align="left">
+                Список номеров пуст
+              </TableCell>
+            </TableRow>}
         </TableBody>
         
       </Table>

@@ -10,9 +10,6 @@ import Config from "../../config";
 const Form: FC = () => {
   const defaultCode = Config.phoneCodes.find(el => el.country === "Russia");
   const [formState, setFormState] = useState({phone: '', code: defaultCode ? defaultCode.code : "", error: {flag: false, message: ""}});
-  // const [isError, setIsError] = useState(false);
-  //const selectRef = useRef<HTMLDivElement>(null);
-  //const defaultSelectCode = ;
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setFormState({...formState, phone: e.target.value});
@@ -52,6 +49,7 @@ const Form: FC = () => {
     <form className={`${styles.formWrapper}`} onSubmit={onSubmitHandler}>
       <FormControl>
         <Select 
+          sx={{minWidth: "65px"}}
           size="small"
           value={formState.code}
           onChange={onSelectChangeHandler} 

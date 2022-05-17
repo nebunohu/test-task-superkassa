@@ -7,11 +7,7 @@ import { router } from "./routes";
 import cors from 'cors';
 import Phone from "./models/Phone";
 
-// const express = require("express");
-// const config = require("config");
-
-const PORT = config.get("port") || 3001;
-const WS_PORT = config.get("ws_port") || 3002;
+const PORT = process.env.PORT || config.get("port") || 3001;
 const app = express();
 
 const server = http.createServer(app);
@@ -50,9 +46,4 @@ const start = async () => {
 } 
 
 start();
-
-
- 
-server.listen(process.env.PORT || WS_PORT , () => console.log(`WS server started on port ${process.env.PORT || WS_PORT}...`));
-
-//app.listen(process.env.PORT || PORT, () => console.log(`Application started on port ${process.env.PORT || PORT}...`));
+server.listen(PORT , () => console.log(`Application started on port ${PORT}...`));
