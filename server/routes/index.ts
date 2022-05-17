@@ -1,6 +1,6 @@
 import { Router, Response, Request } from "express";
 import Phone from '../models/Phone';
-import { socket, wsServer } from "../app";
+import { wsServer } from "../app";
 
 export const router = Router();
 

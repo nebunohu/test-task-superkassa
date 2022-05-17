@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { rootReducer } from './redux/reducers/root';
 import thunk from 'redux-thunk';
-import { applyMiddleware, createStore, compose} from 'redux';
 import { socketMiddleware } from './redux/middleware/socket-middleware';
 import { TMiddlewareWsActions } from './types/ws';
 import { WS_CONNECTION_CLOSE, WS_CONNECTION_START, WS_CONNECTION_SUCCESS, WS_GET_MESSAGE } from './redux/actions/ws-actions';
@@ -19,9 +18,6 @@ const wsActions: TMiddlewareWsActions = {
   onOpen: WS_CONNECTION_SUCCESS,
   onMessage: WS_GET_MESSAGE
 };
-
-// const enhancers = compose(applyMiddleware(thunk, socketMiddleware(`${WS_API_URL}`, wsActions)));
-// export const store = createStore(rootReducer, enhancers);
 
 export const store = configureStore({
   reducer: rootReducer,
