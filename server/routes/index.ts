@@ -1,6 +1,6 @@
 import { Router, Response, Request } from "express";
 import Phone from '../models/Phone';
-import { socket } from "../app";
+import { socket, wsServer } from "../app";
 
 export const router = Router();
 
@@ -41,8 +41,9 @@ router.post("/add", async (req: Request, res: Response) => {
 
         const result = await Phone.find({});
         
-        if (socket) {
-            socket.send(JSON.stringify({result}));
+        if (wsServer.clients.size) {
+            wsServer.clients.forEach(client => client.send({result}));
+            //socket.send(JSON.stringify({result}));
         }
         
         
