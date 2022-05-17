@@ -42,7 +42,7 @@ router.post("/add", async (req: Request, res: Response) => {
         const result = await Phone.find({});
         
         if (wsServer.clients.size) {
-            wsServer.clients.forEach(client => client.send({result}));
+            wsServer.clients.forEach(client => client.send(JSON.stringify({result})));
             //socket.send(JSON.stringify({result}));
         }
         
