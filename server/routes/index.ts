@@ -40,8 +40,8 @@ router.post("/add", async (req: Request, res: Response) => {
         await note.save();
 
         const result = await Phone.find({});
+        
         if (socket) {
-            //console.log(JSON.stringify({result}));
             socket.send(JSON.stringify({result}));
         }
         
