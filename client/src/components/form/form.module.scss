@@ -1,6 +1,6 @@
 .formWrapper {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: flex-start;
   width: fit-content;
   gap: 10px;
@@ -8,4 +8,10 @@
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.1);
+
+  @media screen and (max-width: 420px) {
+    padding: 15px;
+    width: 95%;
+    box-sizing: border-box;
+  }
 }

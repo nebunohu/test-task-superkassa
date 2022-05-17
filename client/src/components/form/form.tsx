@@ -49,7 +49,6 @@ const Form: FC = () => {
     <form className={`${styles.formWrapper}`} onSubmit={onSubmitHandler}>
       <FormControl>
         <Select 
-          sx={{minWidth: "65px"}}
           size="small"
           value={formState.code}
           onChange={onSelectChangeHandler} 
@@ -58,7 +57,8 @@ const Form: FC = () => {
         </Select>
         <FormHelperText></FormHelperText>
       </FormControl>
-      <FormControl>
+      <FormControl
+        sx={{flexGrow: "1"}}>
         <OutlinedInput 
           name="phone"
           id="phone"
@@ -68,7 +68,7 @@ const Form: FC = () => {
         />
         <FormHelperText id="phone" error={formState.error.flag}>{formState.error.message}</FormHelperText>
       </FormControl>
-      <Button 
+      <Button
         type="submit"
         variant="contained"
       >
